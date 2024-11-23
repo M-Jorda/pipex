@@ -6,131 +6,68 @@
 /*   By: jjorda <jjorda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 14:09:15 by jdecorte          #+#    #+#             */
-/*   Updated: 2024/11/23 14:03:38 by jjorda           ###   ########.fr       */
+/*   Updated: 2024/11/22 20:36:37 by jjorda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/pipex.h"
 
 /**
- * Executes a command using execve.
+ * Creates and initializes an argument structure.
  *
- * @param cmd The command to execute.
+ * @param av The argument vector.
  * @param env The environment variables.
+ * @return A pointer to the initialized argument structure, or NULL on error.
  */
-static void	ft_exec(char *cmd, t_arg *args)
+static inline t_arg	*ft_getstruct(char **av, char **env)
 {
-	char	**s_cmd;
-	char	*path;
-	char	err_cmd[64];
+	t_arg	*arg;
 
-	s_cmd = ft_split(cmd, ' ');
-	if (!s_cmd)
+	arg = malloc(sizeof(t_arg));
+	if (!arg)
+		return (NULL);
+	arg->file1 = ft_escape(av[1]);
+	if (!arg->file1)
+	{
+		free(arg);
+		return (NULL);
+	}
+	arg->cmd1 = ft_escape(av[2]);
+	if (!arg->cmd1)
+		return (ft_free_arg(arg));
+	arg->cmd2 = ft_escape(av[3]);
+	if (!arg->cmd2)
+		return (ft_free_arg(arg));
+	arg->file2 = ft_escape(av[4]);
+	if (!arg->file2)
+		return (ft_free_arg(arg));
+	arg->env = env;
+	return (arg);
+}
+
+/**
+ * The main function of the program.
+ *
+ * @param ac The argument count.
+ * @param av The argument vector.
+ * @param env The environment variables.
+ * @return Always returns 0.
+ */
+int	main(int ac, char **av, char **env)
+{
+	t_arg	*args;
+	int		p_fd[2];
+	int		exit;
+
+	if (ac != 5 || !av[1][0] || !av[2][0] || !av[3][0] || !av[4][0])
+		ft_exit_handler();
+	args = ft_getstruct(av, env);
+	if (!args)
+		ft_ppx_err("Cannot allocate memory", "malloc failed", ENOMEM, NULL);
+	if (pipe(p_fd) == -1)
 		ft_ppx_err("Cannot allocate memory", "malloc failed", ENOMEM, args);
-	ft_cmd_ok(s_cmd, args);
-	path = ft_getpath(s_cmd[0], args);
-	if (!path)
-	{
-		ft_free_tab(s_cmd);
-		ft_ppx_err("Cannot allocate memory", "malloc failed", ENOMEM, args);
-	}
-	ft_strlcpy(err_cmd, s_cmd[0], 64);
-	if (execve(path, s_cmd, args->env) == -1)
-	{
-		ft_free_tab(s_cmd);
-		ft_ppx_err("command not found", err_cmd, 127, args);
-	}
-}
-
-/**
- * Opens a file with the specified mode.
- *
- * @param file The file to open.
- * @param in_or_out 0 for read mode, 1 for write mode.
- * @return The file descriptor, or -1 on error.
- */
-static int	ft_open_file(char *file, int in_or_out)
-{
-	int	ret;
-
-	if (in_or_out == 0 && !(access(file, R_OK) == -1))
-		ret = open(file, O_RDONLY);
-	else if (in_or_out == 1)
-	{
-		if (!(access(file, W_OK) == -1))
-			ret = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0777);
-		else
-			return (-2);
-	}
-	else
-		return (-1);
-	return (ret);
-}
-
-/**
- * Handles the child process execution.
- *
- * @param args The arguments structure.
- * @param p_fd The pipe file descriptors.
- */
-static inline void	ft_child(t_arg *args, int *p_fd)
-{
-	int		fd;
-
-	fd = ft_open_file(args->file1, 0);
-	if (fd < 0)
-		ft_ppx_err("No such file or directory", args->file1, 1, args);
-	if (dup2(fd, STDIN_FILENO) != STDIN_FILENO)
-		ft_ppx_err("Bad file descriptor", "STDIN", 1, args);
-	if (dup2(p_fd[1], STDOUT_FILENO) != STDOUT_FILENO)
-		ft_ppx_err("Bad file descriptor", "STDOUT", 1, args);
-	close(p_fd[0]);
-	ft_exec(args->cmd1, args);
-}
-
-/**
- * Handles the parent process execution.
- *
- * @param args The arguments structure.
- * @param p_fd The pipe file descriptors.
- */
-static inline void	ft_parent(t_arg *args, int *p_fd)
-{
-	int		fd;
-
-	fd = ft_open_file(args->file2, 1);
-	if (fd == -1)
-		ft_ppx_err("No such file or directory", args->file2, ENOENT, args);
-	else if (fd == -2)
-		ft_ppx_err("Permission denied", args->file2, EACCES, args);
-	if (dup2(fd, STDOUT_FILENO) != STDOUT_FILENO)
-		ft_ppx_err("Bad file descriptor", "STDOUT", 1, args);
-	if (dup2(p_fd[0], STDIN_FILENO) != STDIN_FILENO)
-		ft_ppx_err("Bad file descriptor", "STDIN", 1, args);
-	close(p_fd[1]);
-	ft_exec(args->cmd2, args);
-}
-
-pid_t	ft_pidmaker(t_arg *args, int *p_fd)
-{
-	pid_t	pid;
-	pid_t	pid2;
-	int		status;
-
-	status = 0;
-	pid = fork();
-	if (pid == -1)
-		ft_ppx_err("Cannot allocate memory", "fork failed", ENOMEM, args);
-	if (!pid)
-		ft_child(args, p_fd);
-	status = ft_waitpid(pid, status);
-	if (status)
-		return (status);
-	pid2 = fork();
-	if (pid2 == -1)
-		ft_ppx_err("Cannot allocate memory", "fork failed", ENOMEM, args);
-	if (!pid2)
-		ft_parent(args, p_fd);
-	status = ft_waitpid(pid2, status);
-	return (status);
+	exit = ft_pidmaker(args, p_fd);
+	ft_free_arg(args);
+	ft_printerr("exit: %d\n", exit);
+	return (exit);
 }

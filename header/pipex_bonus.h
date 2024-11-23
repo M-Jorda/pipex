@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex_bonus.h                                      :+:      :+:    :+:   */
+/*   pipex_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjorda <jjorda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 20:42:33 by jjorda            #+#    #+#             */
-/*   Updated: 2024/11/23 12:28:16 by jjorda           ###   ########.fr       */
+/*   Updated: 2024/11/22 20:42:46 by jjorda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ void	ft_free_tab(char **tab);
 void	ft_exit_handler(void);
 void	ft_ppx_err(char *err, char *name, int ext, t_arg *arg);
 t_arg	*ft_free_arg(t_arg *arg);
-int		ft_waitpid(pid_t pid, int status);
+int	ft_waitpid(pid_t pid, int status);
 
 #endif

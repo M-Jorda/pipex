@@ -6,7 +6,7 @@
 /*   By: jjorda <jjorda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 18:31:27 by jdecorte          #+#    #+#             */
-/*   Updated: 2024/11/23 14:08:29 by jjorda           ###   ########.fr       */
+/*   Updated: 2024/11/22 20:34:32 by jjorda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@
 # include <errno.h>
 # include <string.h>
 
-# define ARG_MAX 128
-
 /* ################################# UTILS_C ################################ */
 
 char	*ft_getpath(char *cmd, t_arg *args);
@@ -48,7 +46,6 @@ void	ft_free_tab(char **tab);
 void	ft_exit_handler(void);
 void	ft_ppx_err(char *err, char *name, int ext, t_arg *arg);
 t_arg	*ft_free_arg(t_arg *arg);
-int		ft_waitpid(pid_t pid, int status);
-char	*ft_freecpy(char *mall);
+int	ft_waitpid(pid_t pid, int status);
 
 #endif

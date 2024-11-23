@@ -14,8 +14,8 @@ ERASE		= printf "\033[2K\r"
 
 # ********************************** FILES *********************************** #
 
-SRCS		= mandatory/main.c mandatory/pipex.c mandatory/utils.c			\
-			mandatory/error.c mandatory/parse.c
+SRCS		= mandatory/pipex.c mandatory/utils.c mandatory/error.c			\
+			mandatory/parse.c
 
 BNS_SRC		= bonus/pipex_bonus.c
 
@@ -29,8 +29,8 @@ APP			= a.out
 OBJS_DIR	= obj
 OBJS		= $(patsubst %.c, $(OBJS_DIR)/%.o, $(SRCS))
 
-BNS_OBJ_DIR	= bonus_obj
-BNS_OBJS	= $(patsubst %.c, $(BNS_OBJ_DIR)/%.o, $(BNS_SRC))
+BNS_OBJ_DIR	= obj
+BNS_OBJS	= $(patsubst %.c, $(OBJS_DIR_BNS)/%.o, $(BNS_SRC))
 
 # ************************************ ALL *********************************** #
 
@@ -39,25 +39,25 @@ all:	$(LIB) $(NAME)
 $(LIB):		
 		@make -s -C $(LIB_DIR);
 
-$(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) -o $@ $^ -L$(LIB_DIR) -lft
-	@$(PRINT) -n "$(Y)Creating executable $@ from objects ";$(WAIT0.3)
-	@$(PRINT) -n ".";$(WAIT0.3)
-	@$(PRINT) -n ".";$(WAIT0.3)
-	@$(PRINT) -n ".";$(WAIT1);$(ERASE)
-	@$(PRINT) "$(G)Executable $@ successfully created$(O)"
-	@$(PRINT) "*********************************************************"
-	@$(PRINT) "*$(Y)    ___   _   ___   ____            __      __         $(O)*"
-	@$(PRINT) "*$(Y)   |   \ (_) |   \ |  __|/\  /\    /  |    /  \        $(O)*"
-	@$(PRINT) "*$(Y)   | |> ) _  | |> )| |_  \ \/ /   /_| |   | /\ |       $(O)*"
-	@$(PRINT) "*$(Y)   |  _/ | | |  _/ |  _|  |  |      | |   |(  )|       $(O)*"
-	@$(PRINT) "*$(Y)   | |   | | | |   | |__ / /\ \     | | _ | \/ |       $(O)*"
-	@$(PRINT) "*$(Y)   |_|   |_| |_|   |____|\/  \/     |_|(_) \__/        $(O)*"
-	@$(PRINT) "*		                                        $(O)*"
-	@$(PRINT) "*$(V)     Made by : jjorda                                  $(O)*"
-	@$(PRINT) "*$(V)     Started : 06/11/2024                              $(O)*"
-	@$(PRINT) "*$(V)                                                       $(O)*"
-	@$(PRINT) "*********************************************************"
+$(NAME):	$(OBJS)
+			@$(CC) $(CFLAGS) -o $@ $^ -L$(LIB_DIR) -lft
+			@$(PRINT) -n "$(Y)Creating executable $@ from objects ";$(WAIT0.3)
+			@$(PRINT) -n ".";$(WAIT0.3)
+			@$(PRINT) -n ".";$(WAIT0.3)
+			@$(PRINT) -n ".";$(WAIT1);$(ERASE)
+			@$(PRINT) "$(G)Executable $@ successfully created$(O)"
+			@$(PRINT) "*********************************************************"
+			@$(PRINT) "*$(Y)    ___   _   ___   ____            __      __         $(O)*"
+			@$(PRINT) "*$(Y)   |   \ (_) |   \ |  __|/\  /\    /  |    /  \        $(O)*"
+			@$(PRINT) "*$(Y)   | |> ) _  | |> )| |_  \ \/ /   /_| |   | /\ |       $(O)*"
+			@$(PRINT) "*$(Y)   |  _/ | | |  _/ |  _|  |  |      | |   |(  )|       $(O)*"
+			@$(PRINT) "*$(Y)   | |   | | | |   | |__ / /\ \     | | _ | \/ |       $(O)*"
+			@$(PRINT) "*$(Y)   |_|   |_| |_|   |____|\/  \/     |_|(_) \__/        $(O)*"
+			@$(PRINT) "*		                                        $(O)*"
+			@$(PRINT) "*$(V)     Made by : jjorda                                  $(O)*"
+			@$(PRINT) "*$(V)     Started : 06/11/2024                              $(O)*"
+			@$(PRINT) "*$(V)                                                       $(O)*"
+			@$(PRINT) "*********************************************************"
 
 $(OBJS_DIR):
 			@mkdir -p $(OBJS_DIR)/mandatory
@@ -67,24 +67,25 @@ $(OBJS_DIR)/%.o:	%.c | $(OBJS_DIR)
 
 # ********************************** BONUS *********************************** #
 
-bonus: $(LIB) $(BNS_OBJ_DIR)
-	@$(PRINT) -n "$(Y)Creating executable $(NAME)_$@  from objects ";$(WAIT0.3)
-	@$(PRINT) -n ".";$(WAIT0.3)
-	@$(PRINT) -n ".";$(WAIT0.3)
-	@$(PRINT) -n ".";$(WAIT1);$(ERASE)
-	@$(PRINT) "$(G)Executable $(NAME)_$@ successfully created$(O)"
-	@$(PRINT) "*********************************************************"
-	@$(PRINT) "*$(Y)                                                       $(O)*"
-	@$(PRINT) "*$(Y)  ░       ░░░░      ░░░   ░░░  ░░  ░░░░  ░░░      ░░   $(O)*"
-	@$(PRINT) "*$(Y)  ▒  ▒▒▒▒  ▒▒  ▒▒▒▒  ▒▒    ▒▒  ▒▒  ▒▒▒▒  ▒▒  ▒▒▒▒▒▒▒   $(O)*"
-	@$(PRINT) "*$(Y)  ▓       ▓▓▓  ▓▓▓▓  ▓▓  ▓  ▓  ▓▓  ▓▓▓▓  ▓▓▓      ▓▓   $(O)*"
-	@$(PRINT) "*$(Y)  █  ████  ██  ████  ██  ██    ██  ████  ████████  █   $(O)*"
-	@$(PRINT) "*$(Y)  █       ████      ███  ███   ███      ████      ██   $(O)*"
-	@$(PRINT) "*		                                        $(O)*"
-	@$(PRINT) "*$(V)     Made by : jjorda                                  $(O)*"
-	@$(PRINT) "*$(V)     Started : 06/11/2024                              $(O)*"
-	@$(PRINT) "*$(V)                                                       $(O)*"
-	@$(PRINT) "*********************************************************"
+bonus:	$(BNS_OBJS)
+			@$(CC) $(CFLAGS) -o $(NAME)_$@  $^ -L$(LIB_DIR) -lft
+			@$(PRINT) -n "$(Y)Creating executable $(NAME)_$@  from objects ";$(WAIT0.3)
+			@$(PRINT) -n ".";$(WAIT0.3)
+			@$(PRINT) -n ".";$(WAIT0.3)
+			@$(PRINT) -n ".";$(WAIT1);$(ERASE)
+			@$(PRINT) "$(G)Executable $(NAME)_$@ successfully created$(O)"
+			@$(PRINT) "*********************************************************"
+			@$(PRINT) "*$(Y)                                                       $(O)*"
+			@$(PRINT) "*$(Y)  ░       ░░░░      ░░░   ░░░  ░░  ░░░░  ░░░      ░░   $(O)*"
+			@$(PRINT) "*$(Y)  ▒  ▒▒▒▒  ▒▒  ▒▒▒▒  ▒▒    ▒▒  ▒▒  ▒▒▒▒  ▒▒  ▒▒▒▒▒▒▒   $(O)*"
+			@$(PRINT) "*$(Y)  ▓       ▓▓▓  ▓▓▓▓  ▓▓  ▓  ▓  ▓▓  ▓▓▓▓  ▓▓▓      ▓▓   $(O)*"
+			@$(PRINT) "*$(Y)  █  ████  ██  ████  ██  ██    ██  ████  ████████  █   $(O)*"
+			@$(PRINT) "*$(Y)  █       ████      ███  ███   ███      ████      ██   $(O)*"
+			@$(PRINT) "*		                                        $(O)*"
+			@$(PRINT) "*$(V)     Made by : jjorda                                  $(O)*"
+			@$(PRINT) "*$(V)     Started : 06/11/2024                              $(O)*"
+			@$(PRINT) "*$(V)                                                       $(O)*"
+			@$(PRINT) "*********************************************************"
 
 
 $(BNS_OBJ_DIR):
@@ -95,56 +96,56 @@ $(BNS_OBJ_DIR)/%.o:	%.c | $(BNS_OBJ_DIR)
 
 # ********************************** DEBUG *********************************** #
 
-debug: $(LIB) $(OBJS)
-	@$(CC) -g -o $(NAME) $(SRCS) libft/libft.a 
-	@$(PRINT) "*********************************************************"
-	@$(PRINT) "*$(Y)                                                       $(O)*"
-	@$(PRINT) "*$(Y)     ██████  ███████ ██████  ██    ██  ██████          $(O)*"
-	@$(PRINT) "*$(Y)     ██   ██ ██      ██   ██ ██    ██ ██               $(O)*"
-	@$(PRINT) "*$(Y)     ██   ██ █████   ██████  ██    ██ ██   ███         $(O)*"
-	@$(PRINT) "*$(Y)     ██   ██ ██      ██   ██ ██    ██ ██    ██         $(O)*"
-	@$(PRINT) "*$(Y)     ██████  ███████ ██████   ██████   ██████          $(O)*"
-	@$(PRINT) "*                                                       $(O)*"
-	@$(PRINT) "*$(V)     Made by : jjorda                                  $(O)*"
-	@$(PRINT) "*$(V)     Started : 06/11/2024                              $(O)*"
-	@$(PRINT) "*$(V)                                                       $(O)*"
-	@$(PRINT) "*********************************************************"
+debug: 	$(LIB) $(OBJS)
+		@$(CC) -g -o $(NAME) $(SRCS) libft/libft.a 
+		@$(PRINT) "*********************************************************"
+		@$(PRINT) "*$(Y)                                                       $(O)*"
+		@$(PRINT) "*$(Y)     ██████  ███████ ██████  ██    ██  ██████          $(O)*"
+		@$(PRINT) "*$(Y)     ██   ██ ██      ██   ██ ██    ██ ██               $(O)*"
+		@$(PRINT) "*$(Y)     ██   ██ █████   ██████  ██    ██ ██   ███         $(O)*"
+		@$(PRINT) "*$(Y)     ██   ██ ██      ██   ██ ██    ██ ██    ██         $(O)*"
+		@$(PRINT) "*$(Y)     ██████  ███████ ██████   ██████   ██████          $(O)*"
+		@$(PRINT) "*                                                       $(O)*"
+		@$(PRINT) "*$(V)     Made by : jjorda                                  $(O)*"
+		@$(PRINT) "*$(V)     Started : 06/11/2024                              $(O)*"
+		@$(PRINT) "*$(V)                                                       $(O)*"
+		@$(PRINT) "*********************************************************"
 
 # ********************************** A.OUT *********************************** #
 
 $(APP):	
-	@find -name $(APP) -delete
-	@make $(APP) -s -C $(LIB_DIR)
+		@find -name $(APP) -delete
+		@make $(APP) -s -C $(LIB_DIR)
 
 
 # ********************************** CLEAN *********************************** #
 
 clean:	
-	@make clean -s -C $(LIB_DIR)
-	@$(RM)r $(OBJS_DIR)
+		@make clean -s -C $(LIB_DIR)
+		@$(RM)r $(OBJS_DIR)
 
 # ********************************** FCLEAN ********************************** #
 
 fclean:	clean 
-	@make fclean -s -C $(LIB_DIR)
-	@$(RM) $(NAME)
+		@make fclean -s -C $(LIB_DIR)
+		@$(RM) $(NAME)
 
 # ************************************ RE ************************************ #
 
 re:	fclean all
 
 party:
-	@printf "\033c"
-	@echo "\n\$(P)♪┏(・o･)┛♪"
-	@sleep 1
-	@printf "\033c"
-	@echo "$(Y)♪┗(・o･)┓♪"
-	@sleep 1
-	@printf "\033c"
-	@echo "\n$(B)♪┏(・o･)┛♪"
-	@sleep 1
-	@printf "\033c"
-	@echo "$(V)♪┗(・o･)┓♪\n"
+					@printf "\033c"
+					@echo "\n\$(P)♪┏(・o･)┛♪"
+					@sleep 1
+					@printf "\033c"
+					@echo "$(Y)♪┗(・o･)┓♪"
+					@sleep 1
+					@printf "\033c"
+					@echo "\n$(B)♪┏(・o･)┛♪"
+					@sleep 1
+					@printf "\033c"
+					@echo "$(V)♪┗(・o･)┓♪\n"
 
 # ********************************** PHONY *********************************** #
 
