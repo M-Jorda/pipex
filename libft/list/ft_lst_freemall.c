@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../libft.h"
-#include "../../pipex.h"
+#include "../../header/pipex.h"
 
 void	ft_lst_freemall(t_mall *head, void *mall)
 {

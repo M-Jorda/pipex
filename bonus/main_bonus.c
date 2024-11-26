@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjorda <jjorda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/30 14:09:15 by jdecorte          #+#    #+#             */
-/*   Updated: 2024/11/26 15:57:43 by jjorda           ###   ########.fr       */
+/*   Created: 2024/11/26 15:19:46 by jjorda            #+#    #+#             */
+/*   Updated: 2024/11/26 17:11:24 by jjorda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/pipex.h"
+#include "../header/pipex_bonus.h"
 
 /**
  * Creates and initializes an argument structure.
@@ -26,21 +26,21 @@ static inline t_arg	*ft_getstruct(char **av, char **env)
 	arg = malloc(sizeof(t_arg));
 	if (!arg)
 		return (NULL);
-	arg->file1 = ft_escape(av[1]);
+	arg->file1 = ft_bns_escape(av[1]);
 	if (!arg->file1)
 	{
 		free(arg);
 		return (NULL);
 	}
-	arg->cmd1 = ft_escape(av[2]);
+	arg->cmd1 = ft_bns_escape(av[2]);
 	if (!arg->cmd1)
-		return (ft_free_arg(arg));
-	arg->cmd2 = ft_escape(av[3]);
+		return (ft_bns_free_arg(arg));
+	arg->cmd2 = ft_bns_escape(av[3]);
 	if (!arg->cmd2)
-		return (ft_free_arg(arg));
-	arg->file2 = ft_escape(av[4]);
+		return (ft_bns_free_arg(arg));
+	arg->file2 = ft_bns_escape(av[4]);
 	if (!arg->file2)
-		return (ft_free_arg(arg));
+		return (ft_bns_free_arg(arg));
 	arg->env = env;
 	return (arg);
 }
@@ -56,16 +56,13 @@ static inline t_arg	*ft_getstruct(char **av, char **env)
 int	main(int ac, char **av, char **env)
 {
 	t_arg	*args;
-	int		p_fd[2];
 
-	if (ac != 5 || !av[1][0] || !av[2][0] || !av[3][0] || !av[4][0])
-		ft_exit_handler();
+	if (ac <= 5 || !av[1][0] || !av[2][0] || !av[3][0] || !av[4][0])
+		ft_bns_exit_handler();
 	args = ft_getstruct(av, env);
 	if (!args)
-		ft_ppx_err(ERR_MALL_M, ERR_MALL_N, ENOMEM, NULL);
-	if (pipe(p_fd) == -1)
-		ft_ppx_err(ERR_MALL_M, ERR_MALL_N, ENOMEM, args);
-	ft_pidmaker(args, p_fd);
-	ft_free_arg(args);
+		ft_bns_ppx_err(ERR_MALL_M, ERR_MALL_N, ENOMEM, NULL);
+	ft_bns_pidmaker(args, ac - 3);
+	ft_bns_free_arg(args);
 	return (0);
 }

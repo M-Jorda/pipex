@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   parse_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjorda <jjorda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/20 10:59:27 by jjorda            #+#    #+#             */
-/*   Updated: 2024/11/24 15:09:39 by jjorda           ###   ########.fr       */
+/*   Created: 2024/11/26 16:00:00 by jjorda            #+#    #+#             */
+/*   Updated: 2024/11/26 16:29:19 by jjorda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/pipex.h"
+#include "../header/pipex_bonus.h"
 
 /**
  * Retrieves the value of an environment variable.
@@ -35,7 +35,7 @@ static inline char	*ft_getenv(char *name, t_arg *args)
 			j++;
 		sub = ft_substr(args->env[i], 0, j);
 		if (!sub)
-			ft_ppx_err(ERR_MALL_M, ERR_MALL_N, ENOMEM, args);
+			ft_bns_ppx_err(ERR_MALL_M, ERR_MALL_N, ENOMEM, args);
 		if (ft_strcmp(sub, name) == 0)
 		{
 			free(sub);
@@ -79,20 +79,20 @@ static inline char	*ft_loop(char **allpath, char **s_cmd, t_arg *args)
 	{
 		path_part = ft_strjoin(allpath[i], "/");
 		if (!path_part)
-			ft_ppx_err(ERR_MALL_M, ERR_MALL_N, ENOMEM, args);
+			ft_bns_ppx_err(ERR_MALL_M, ERR_MALL_N, ENOMEM, args);
 		exec = ft_strjoin(path_part, s_cmd[0]);
 		if (!exec)
 		{
 			free(path_part);
-			ft_ppx_err(ERR_MALL_M, ERR_MALL_N, ENOMEM, args);
+			ft_bns_ppx_err(ERR_MALL_M, ERR_MALL_N, ENOMEM, args);
 		}
 		free(path_part);
 		if (access(exec, F_OK | X_OK) == 0)
 		{
-			ft_free_tab(s_cmd);
+			ft_bns_free_tab(s_cmd);
 			return (exec);
 		}
-		// ft_ppx_err(CMD_TOO_L, ft_freecpy(temp, exec), E2BIG, args);
+		// ft_bns_ppx_err(CMD_TOO_L, ft_freecpy(temp, exec), E2BIG, args);
 		free(exec);
 	}
 	return (NULL);
@@ -105,7 +105,7 @@ static inline char	*ft_loop(char **allpath, char **s_cmd, t_arg *args)
  * @param env The environment variables.
  * @return The full path to the command, or the command itself if not found.
  */
-char	*ft_getpath(char *cmd, t_arg *args)
+char	*ft_bns_getpath(char *cmd, t_arg *args)
 {
 	char	*exec;
 	char	**allpath;
@@ -113,22 +113,22 @@ char	*ft_getpath(char *cmd, t_arg *args)
 
 	allpath = ft_split(ft_getenv("PATH", args), ':');
 	if (!allpath)
-		ft_ppx_err(ERR_MALL_M, ERR_MALL_N, ENOMEM, args);
+		ft_bns_ppx_err(ERR_MALL_M, ERR_MALL_N, ENOMEM, args);
 	s_cmd = ft_split(cmd, ' ');
 	if (!s_cmd)
 	{
-		ft_free_tab(allpath);
-		ft_ppx_err(ERR_MALL_M, ERR_MALL_N, ENOMEM, args);
+		ft_bns_free_tab(allpath);
+		ft_bns_ppx_err(ERR_MALL_M, ERR_MALL_N, ENOMEM, args);
 	}
 	exec = ft_loop(allpath, s_cmd, args);
 	if (exec)
 		return (exec);
-	ft_free_tab(allpath);
-	ft_free_tab(s_cmd);
+	ft_bns_free_tab(allpath);
+	ft_bns_free_tab(s_cmd);
 	return (cmd);
 }
 
-char	*ft_escape(char *str)
+char	*ft_bns_escape(char *str)
 {
 	char	*esc;
 
@@ -149,6 +149,6 @@ char	*ft_escape(char *str)
 	temp = NULL;
 	size_cmd = ft_strlen(cmd);
 	if (size_cmd > ARG_MAX)
-		ft_ppx_err(CMD_TOO_L, ft_freecpy(temp, cmd), E2BIG, arg);
+		ft_bns_ppx_err(CMD_TOO_L, ft_freecpy(temp, cmd), E2BIG, arg);
 	return (0);
 } */

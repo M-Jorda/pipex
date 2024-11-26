@@ -1,17 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct.h                                           :+:      :+:    :+:   */
+/*   struct_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjorda <jjorda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 19:49:48 by jjorda            #+#    #+#             */
-/*   Updated: 2024/11/26 16:25:07 by jjorda           ###   ########.fr       */
+/*   Created: 2024/11/26 16:22:29 by jjorda            #+#    #+#             */
+/*   Updated: 2024/11/26 16:22:42 by jjorda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_H
-# define STRUCT_H
+#ifndef STRUCT_BONUS_H
+# define STRUCT_BONUS_H
+
+# include "pipex_bonus.h"
 
 typedef struct s_arg
 {
