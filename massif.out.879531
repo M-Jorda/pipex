@@ -1,0 +1,718 @@
+desc: (none)
+cmd: ./pipex_bns infile.txt ghvuf  wc -w hfub h outfile.txt
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=179390
+mem_heap_B=16
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=179884
+mem_heap_B=96
+mem_heap_extra_B=48
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=185631
+mem_heap_B=112
+mem_heap_extra_B=56
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=188656
+mem_heap_B=135
+mem_heap_extra_B=97
+mem_stacks_B=0
+heap_tree=detailed
+n4: 135 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 80 0x4034A5: ft_lstnew (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 64 0x4013F1: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n0: 64 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 16 0x4013CA: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n0: 16 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n2: 23 0x402656: ft_substr (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 17 0x401D74: ft_getenv (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 17 0x401BE2: ft_bns_getpath (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 17 0x401AD9: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 17 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n1: 17 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+       n0: 17 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 6 0x40285B: ft_split_arg (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 6 0x401A98: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 6 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 6 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n0: 6 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n1: 16 0x40140C: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n0: 16 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n1: 16 0x402941: ft_arrmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 16 0x4027C2: ft_split_arg (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 16 0x401A98: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 16 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 16 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n0: 16 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+#-----------
+snapshot=5
+#-----------
+time=191124
+mem_heap_B=118
+mem_heap_extra_B=74
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=194468
+mem_heap_B=118
+mem_heap_extra_B=74
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=198578
+mem_heap_B=130
+mem_heap_extra_B=86
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=201744
+mem_heap_B=118
+mem_heap_extra_B=74
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=205816
+mem_heap_B=118
+mem_heap_extra_B=74
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=208586
+mem_heap_B=125
+mem_heap_extra_B=91
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=210772
+mem_heap_B=118
+mem_heap_extra_B=74
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=214012
+mem_heap_B=118
+mem_heap_extra_B=74
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=216472
+mem_heap_B=118
+mem_heap_extra_B=74
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=220080
+mem_heap_B=118
+mem_heap_extra_B=74
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=224172
+mem_heap_B=118
+mem_heap_extra_B=74
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=226932
+mem_heap_B=156
+mem_heap_extra_B=92
+mem_stacks_B=0
+heap_tree=detailed
+n4: 156 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 80 0x4034A5: ft_lstnew (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 64 0x4013F1: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n0: 64 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 16 0x4013CA: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n0: 16 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n2: 44 0x402656: ft_substr (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 38 0x401D74: ft_getenv (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 38 0x401BE2: ft_bns_getpath (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 38 0x401AD9: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 38 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n1: 38 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+       n0: 38 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 6 0x40285B: ft_split_arg (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 6 0x401A98: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 6 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 6 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n0: 6 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n1: 16 0x40140C: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n0: 16 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n1: 16 0x402941: ft_arrmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 16 0x4027C2: ft_split_arg (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 16 0x401A98: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 16 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 16 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n0: 16 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+#-----------
+snapshot=17
+#-----------
+time=231152
+mem_heap_B=142
+mem_heap_extra_B=90
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=234524
+mem_heap_B=142
+mem_heap_extra_B=90
+mem_stacks_B=0
+heap_tree=detailed
+n4: 142 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 80 0x4034A5: ft_lstnew (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 64 0x4013F1: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n0: 64 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 16 0x4013CA: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n0: 16 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n2: 30 0x402656: ft_substr (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 24 0x401D74: ft_getenv (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 24 0x401BE2: ft_bns_getpath (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 24 0x401AD9: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 24 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n1: 24 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+       n0: 24 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 6 0x40285B: ft_split_arg (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 6 0x401A98: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 6 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 6 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n0: 6 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n1: 16 0x40140C: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n0: 16 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n1: 16 0x402941: ft_arrmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 16 0x4027C2: ft_split_arg (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 16 0x401A98: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 16 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 16 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n0: 16 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+#-----------
+snapshot=19
+#-----------
+time=239062
+mem_heap_B=118
+mem_heap_extra_B=74
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=242212
+mem_heap_B=148
+mem_heap_extra_B=84
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=246606
+mem_heap_B=118
+mem_heap_extra_B=74
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=249346
+mem_heap_B=118
+mem_heap_extra_B=74
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=253678
+mem_heap_B=118
+mem_heap_extra_B=74
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=257636
+mem_heap_B=149
+mem_heap_extra_B=83
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=259328
+mem_heap_B=127
+mem_heap_extra_B=89
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=263036
+mem_heap_B=143
+mem_heap_extra_B=89
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=266188
+mem_heap_B=130
+mem_heap_extra_B=86
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=270516
+mem_heap_B=123
+mem_heap_extra_B=93
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=276081
+mem_heap_B=246
+mem_heap_extra_B=82
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=280336
+mem_heap_B=263
+mem_heap_extra_B=105
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=285086
+mem_heap_B=280
+mem_heap_extra_B=128
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=290025
+mem_heap_B=304
+mem_heap_extra_B=144
+mem_stacks_B=0
+heap_tree=detailed
+n5: 304 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 128 0x40221B: ft_arrmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 128 0x4020CC: ft_split (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 128 0x401BEF: ft_bns_getpath (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 128 0x401AD9: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 128 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n1: 128 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+       n0: 128 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n2: 80 0x4034A5: ft_lstnew (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 64 0x4013F1: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n0: 64 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 16 0x4013CA: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n0: 16 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n3: 64 0x402656: ft_substr (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 58 0x402170: ft_split (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 58 0x401BEF: ft_bns_getpath (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 58 0x401AD9: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 58 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n1: 58 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+       n0: 58 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 6 0x40285B: ft_split_arg (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 6 0x401A98: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 6 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 6 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n0: 6 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 16 0x40140C: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n0: 16 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n1: 16 0x402941: ft_arrmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 16 0x4027C2: ft_split_arg (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 16 0x401A98: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 16 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 16 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n0: 16 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+#-----------
+snapshot=33
+#-----------
+time=295079
+mem_heap_B=325
+mem_heap_extra_B=163
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=300319
+mem_heap_B=356
+mem_heap_extra_B=172
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=305434
+mem_heap_B=372
+mem_heap_extra_B=180
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=310102
+mem_heap_B=387
+mem_heap_extra_B=189
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=314607
+mem_heap_B=397
+mem_heap_extra_B=203
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=318945
+mem_heap_B=406
+mem_heap_extra_B=218
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=323174
+mem_heap_B=412
+mem_heap_extra_B=236
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=327292
+mem_heap_B=417
+mem_heap_extra_B=255
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=331544
+mem_heap_B=428
+mem_heap_extra_B=268
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=336126
+mem_heap_B=445
+mem_heap_extra_B=291
+mem_stacks_B=0
+heap_tree=detailed
+n5: 445 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 205 0x402656: ft_substr (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 199 0x402170: ft_split (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 199 0x401BEF: ft_bns_getpath (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 199 0x401AD9: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 199 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n1: 199 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+       n0: 199 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n0: 6 in 2 places, all below massif's threshold (1.00%)
+ n1: 128 0x40221B: ft_arrmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 128 0x4020CC: ft_split (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 128 0x401BEF: ft_bns_getpath (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 128 0x401AD9: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 128 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n1: 128 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+       n0: 128 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n2: 80 0x4034A5: ft_lstnew (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 64 0x4013F1: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n0: 64 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 16 0x4013CA: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n0: 16 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n1: 16 0x40140C: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n0: 16 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n1: 16 0x402941: ft_arrmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 16 0x4027C2: ft_split_arg (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 16 0x401A98: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 16 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 16 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n0: 16 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+#-----------
+snapshot=43
+#-----------
+time=340687
+mem_heap_B=455
+mem_heap_extra_B=305
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=345260
+mem_heap_B=473
+mem_heap_extra_B=327
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=348232
+mem_heap_B=536
+mem_heap_extra_B=392
+mem_stacks_B=0
+heap_tree=detailed
+n6: 536 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n3: 239 0x402656: ft_substr (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 227 0x402170: ft_split (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 227 0x401BEF: ft_bns_getpath (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 227 0x401AD9: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 227 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n1: 227 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+       n0: 227 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 12 0x40285B: ft_split_arg (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n0: 12 in 2 places, all below massif's threshold (1.00%)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 128 0x40221B: ft_arrmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 128 0x4020CC: ft_split (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 128 0x401BEF: ft_bns_getpath (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 128 0x401AD9: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 128 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n1: 128 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+       n0: 128 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n2: 80 0x4034A5: ft_lstnew (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 64 0x4013F1: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n0: 64 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 16 0x4013CA: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n0: 16 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n1: 41 0x402567: ft_strmalloc (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n2: 41 0x40243C: ft_strjoin (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 23 0x401EA9: ft_loop (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 23 0x401C74: ft_bns_getpath (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 23 0x401AD9: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n1: 23 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+       n1: 23 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+        n0: 23 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 18 0x401E68: ft_loop (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 18 0x401C74: ft_bns_getpath (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 18 0x401AD9: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n1: 18 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+       n1: 18 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+        n0: 18 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n1: 32 0x402941: ft_arrmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n2: 32 0x4027C2: ft_split_arg (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 16 0x401A98: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 16 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 16 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n0: 16 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 16 0x401C29: ft_bns_getpath (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 16 0x401AD9: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 16 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n1: 16 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+       n0: 16 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n1: 16 0x40140C: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n0: 16 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+#-----------
+snapshot=46
+#-----------
+time=350983
+mem_heap_B=495
+mem_heap_extra_B=353
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=354128
+mem_heap_B=564
+mem_heap_extra_B=380
+mem_stacks_B=0
+heap_tree=peak
+n6: 564 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n3: 239 0x402656: ft_substr (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 227 0x402170: ft_split (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 227 0x401BEF: ft_bns_getpath (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 227 0x401AD9: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 227 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n1: 227 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+       n0: 227 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 12 0x40285B: ft_split_arg (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n0: 12 in 2 places, all below massif's threshold (1.00%)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 128 0x40221B: ft_arrmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 128 0x4020CC: ft_split (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 128 0x401BEF: ft_bns_getpath (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 128 0x401AD9: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 128 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n1: 128 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+       n0: 128 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n2: 80 0x4034A5: ft_lstnew (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 64 0x4013F1: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n0: 64 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 16 0x4013CA: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n0: 16 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n1: 69 0x402567: ft_strmalloc (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n2: 69 0x40243C: ft_strjoin (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 37 0x401EA9: ft_loop (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 37 0x401C74: ft_bns_getpath (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 37 0x401AD9: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n1: 37 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+       n1: 37 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+        n0: 37 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 32 0x401E68: ft_loop (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 32 0x401C74: ft_bns_getpath (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 32 0x401AD9: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n1: 32 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+       n1: 32 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+        n0: 32 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n1: 32 0x402941: ft_arrmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n2: 32 0x4027C2: ft_split_arg (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 16 0x401A98: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 16 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 16 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n0: 16 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 16 0x401C29: ft_bns_getpath (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 16 0x401AD9: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 16 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n1: 16 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+       n0: 16 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n1: 16 0x40140C: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n0: 16 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+#-----------
+snapshot=48
+#-----------
+time=358847
+mem_heap_B=507
+mem_heap_extra_B=365
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=363380
+mem_heap_B=538
+mem_heap_extra_B=390
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=363889
+mem_heap_B=478
+mem_heap_extra_B=330
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=364396
+mem_heap_B=286
+mem_heap_extra_B=130
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=365053
+mem_heap_B=136
+mem_heap_extra_B=64
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=368203
+mem_heap_B=96
+mem_heap_extra_B=48
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=369801
+mem_heap_B=139
+mem_heap_extra_B=85
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=371081
+mem_heap_B=116
+mem_heap_extra_B=68
+mem_stacks_B=0
+heap_tree=detailed
+n4: 116 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 80 0x4034A5: ft_lstnew (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 64 0x4013F1: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n0: 64 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 16 0x4013CA: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n0: 16 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n2: 20 0x4045B9: ft_strdup (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n2: 20 0x403906: ft_printerr (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 20 0x40206F: ft_bns_ppx_err (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 20 0x401B24: ft_exec (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n1: 20 0x4018D8: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+      n1: 20 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+       n0: 20 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 16 0x40140C: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n0: 16 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n0: 0 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=56
+#-----------
+time=372311
+mem_heap_B=116
+mem_heap_extra_B=68
+mem_stacks_B=0
+heap_tree=empty

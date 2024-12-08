@@ -29,7 +29,7 @@ int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isprint(int c);
-int		ft_count_word(char const *s, char c);
+int		ft_count_word(char const *s);
 int		ft_countdigit(long long n);
 int		ft_isesc(char c);
 
@@ -49,6 +49,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	**ft_split(char const *s, char c);
 char	*ft_strtrim(char const *s1, char const *set);
+void	ft_leak(char **str, size_t i);
+char	**ft_split_arg(char const *s);
 
 /* ---------------------------- STR_MANIPULATION ---------------------------- */
 
@@ -63,7 +65,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_strcat(char *dest, const char *src);
 char	*ft_strncpy(char *dest, const char *src, size_t n);
-char	*ft_strcpy_esc(char *dest, char *src);
+char	*ft_strcpy_esc(char *dest, const char *src);
 
 /* ------------------------------- STR_SEARCH ------------------------------- */
 
@@ -77,6 +79,7 @@ char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_isspace(char c);
+int		ft_find_quotes(char const *s);
 
 /* --------------------------------- PRINT ---------------------------------- */
 
@@ -89,7 +92,11 @@ void	ft_putnbr_fd(int n, int fd);
 
 typedef struct s_list
 {
-	void			*content;
+	union
+	{
+		char		*content;
+		char		**env;
+	};
 	struct s_list	*next;
 }	t_list;
 
@@ -109,7 +116,11 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-void	ft_lstfree(t_mall *head);
+void	ft_lstfree(t_list **head);
 t_mall	*ft_lstnew_back_mall(t_mall *head, void *mall, char *name);
+void	ft_lst_freemall(t_mall *head, void *mall);
+t_list	*ft_lstn_2(t_list *lst);
+t_list	*ft_lstn_3(t_list *lst);
+t_list	*ft_nextlst(t_list *head, int i);
 
 #endif

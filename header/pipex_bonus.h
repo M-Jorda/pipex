@@ -6,7 +6,7 @@
 /*   By: jjorda <jjorda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 18:31:27 by jdecorte          #+#    #+#             */
-/*   Updated: 2024/11/26 17:05:55 by jjorda           ###   ########.fr       */
+/*   Updated: 2024/12/08 15:17:37 by jjorda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 // STDERR_FILENO: Standard Error
 
 # include "../libft/libft.h"
-# include "struct.h"
 # include <unistd.h>
 # include <stdio.h>
 # include <sys/types.h>
@@ -52,15 +51,18 @@
 
 /* ################################# UTILS_C ################################ */
 
-char	*ft_bns_getpath(char *cmd, t_arg *args);
+char	*ft_bns_getpath(char *cmd, t_list *args);
 char	*ft_bns_escape(char *str);
-int		ft_bns_pidmaker(t_arg *args, int ac);
+int		ft_bns_pidmaker(t_list *args, int ac, int i);
+int		ft_open_file(char *file, int in_or_out);
+char	*ft_delimiter(char *str);
 
-/* ################################# ERROR_C ################################ */
+// /* ############################### ERROR_C ############################### */
 
 void	ft_bns_free_tab(char **tab);
-void	ft_bns_exit_handler(void);
-void	ft_bns_ppx_err(char *err, char *name, int ext, t_arg *arg);
-t_arg	*ft_bns_free_arg(t_arg *arg);
+void	ft_bns_exit_handler(t_list *head);
+void	ft_bns_ppx_err(char *err, char *name, int ext, t_list *arg);
+void	ft_bns_ppx_stop(int ext, t_list *head);
+// t_list	*ft_bns_free_arg(t_list *arg);
 
 #endif

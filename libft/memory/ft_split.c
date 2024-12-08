@@ -6,7 +6,7 @@
 /*   By: jjorda <jjorda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 08:32:52 by jjorda            #+#    #+#             */
-/*   Updated: 2024/11/10 13:57:06 by jjorda           ###   ########.fr       */
+/*   Updated: 2024/12/08 13:16:59 by jjorda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,6 @@ static int	how_many(char const *s, char c)
 		i++;
 	}
 	return (counter);
-}
-
-static void	ft_leak(char **str, size_t i)
-{
-	if (!str)
-		return ;
-	while (i > 0)
-		free(str[--i]);
-	free(str);
 }
 
 static char	**ft_arrmaker(char const *s, char c)
@@ -75,19 +66,11 @@ static int	ft_splitereate(char const *s, int *i, int len, char c)
 	return (*i);
 }
 
-/**
- * Splits a string into an array of substrings based on the specified delimiter
- * character.
- * 
- * @param s The string to split.
- * @param c The delimiter character.
- * @return A pointer to an array of strings (substrings), or NULL if malloc
- * fails or invalid parameters are provided.
- * 
- * Note: Memory for the array and substrings is allocated using malloc().
- *       If malloc fails, the function returns NULL and cleans up the previously
- * allocated memory.
- */
+/*
+* Allocates (with malloc(3)) and returns an array of strings obtained by
+* splitting ’s’ using the character ’c’ as a delimiter. The array must end
+* with a NULL pointer.
+*/
 char	**ft_split(char const *s, char c)
 {
 	char	**str;
@@ -113,3 +96,73 @@ char	**ft_split(char const *s, char c)
 	}
 	return (str);
 }
+
+/* int	main(int argc, char **argv)
+{
+	char **str = ft_split(argv[1], ' ');
+	for (int i = 0; str[i]; i++)
+		ft_printerr("%s\n", str[i]);
+	ft_free(str);
+	return (0);
+} */
+
+/* void    ft_free_split(char **split);
+
+void    print_split(char **split)
+{
+	int i = 0;
+	while (split[i])
+	{
+		printf("split[%d]: %s\n", i, split[i]);
+		i++;
+	}
+}
+
+void    test_ft_split(char const *s, char c)
+{
+	char **result = ft_split(s, c);
+	if (result == NULL)
+	{
+		printf("ft_split returned NULL\n");
+		return;
+	}
+	print_split(result);
+	ft_free_split(result);
+}
+
+void    ft_free_split(char **split)
+{
+	int i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+}
+
+int main(void)
+{
+	printf("Test 1: Basic split\n");
+	test_ft_split("hello world this is a test", ' ');
+
+	printf("\nTest 2: Multiple delimiters\n");
+	test_ft_split("hello  world  this  is  a  test", ' ');
+
+	printf("\nTest 3: Leading and trailing delimiters\n");
+	test_ft_split("  hello world this is a test  ", ' ');
+
+	printf("\nTest 4: Only delimiters\n");
+	test_ft_split("     ", ' ');
+
+	printf("\nTest 5: No delimiters\n");
+	test_ft_split("helloworld", ' ');
+
+	printf("\nTest 6: Empty string\n");
+	test_ft_split("", ' ');
+
+	printf("\nTest 7: Delimiter not in string\n");
+	test_ft_split("hello,world,this,is,a,test", ' ');
+
+	return 0;
+} */

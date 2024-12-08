@@ -25,14 +25,15 @@ SRC_CON	= convertion/ft_atoi.c convertion/ft_itoa.c convertion/ft_tolower.c \
 
 SRC_MEM	= memory/ft_calloc.c memory/ft_mallocfailed.c						\
 		memory/ft_split.c memory/ft_strdup.c memory/ft_strjoin.c			\
-		memory/ft_strmapi.c memory/ft_strtrim.c memory/ft_substr.c
+		memory/ft_strmapi.c memory/ft_strtrim.c memory/ft_substr.c			\
+		memory/ft_leak.c memory/ft_split_arg.c
 
 SRC_PRT	= print/ft_putchar_fd.c print/ft_putendl_fd.c print/ft_putnbr_fd.c	\
 		print/ft_putstr_fd.c
 
 SRC_SCH	= search/ft_isalnum.c search/ft_isalpha.c							\
 		search/ft_isascii.c search/ft_isdigit.c search/ft_isprint.c			\
-		search/ft_count_word.c search/ft_isesc.c
+		search/ft_count_word.c search/ft_isesc.c search/ft_find_quotes.c
 
 SRC_MAN	= manipulation/ft_bzero.c manipulation/ft_memcpy.c					\
 		manipulation/ft_memmove.c manipulation/ft_memset.c					\
@@ -50,7 +51,8 @@ SRC_SEA	= str_search/ft_memchr.c str_search/ft_strcmp.c						\
 SRC_LST	= list/ft_lstnew.c list/ft_lstadd_back.c list/ft_lstclear.c			\
 		list/ft_lstadd_front.c list/ft_lstdelone.c list/ft_lstsize.c		\
 		list/ft_lstiter.c list/ft_lstlast.c list/ft_lstmap.c				\
-		list/ft_lstfree.c list/ft_lstnew_mall.c
+		list/ft_lstfree.c list/ft_lstnew_mall.c list/ft_lst_freemall.c		\
+		list/ft_lstn_2.c list/ft_lstn_3.c list/ft_nextlst.c
 
 SRC_PF	= print/ft_printf/ft_printf.c print/ft_printf/ft_printf_utils.c
 
@@ -72,23 +74,21 @@ all:	$(NAME)
 $(NAME):	$(OBJS)
 			@ar rcs $@ $(OBJS)
 			@$(PRINT) -n "$(Y)Creating library static $@ from objects ";$(WAIT0.3)
-			@$(PRINT) -n ".";$(WAIT0.3)
-			@$(PRINT) -n ".";$(WAIT0.3)
-			@$(PRINT) -n ".";$(WAIT1);$(ERASE)
+# @$(PRINT) -n ".";$(WAIT0.3)
+# @$(PRINT) -n ".";$(WAIT0.3)
+# @$(PRINT) -n ".";$(WAIT1);$(ERASE)
 			@$(PRINT) "$(G)Library $@ successfully created$(O)"
-			@$(PRINT) "*********************************************************"
-			@$(PRINT) "*$(Y)   _       _  _       __     _        __       __      $(O)*"
-			@$(PRINT) "*$(Y)  | |     (_)| |     / _|  _| |_    / _ \     /  \     $(O)*"
-			@$(PRINT) "*$(Y)  | |      _ | |__  | |_  |_   _|  |_| | )   | /\ |    $(O)*"
-			@$(PRINT) "*$(Y)  | |     | ||    \ |  _|   | |       / /    |(  )|    $(O)*"
-			@$(PRINT) "*$(Y)  | |____ | || |>  )| |     | |      / /_  _ | \/ |    $(O)*"
-			@$(PRINT) "*$(Y)  |______||_||____/ |_|     |_|     |____|(_) \__/     $(O)*"
-			@$(PRINT) "*		                                        $(O)*"
-			@$(PRINT) "*$(V)     Made by : jjorda                                  $(O)*"
-			@$(PRINT) "*$(V)     Finished : 27/09/2024                             $(O)*"
-			@$(PRINT) "*$(V)     ft_add(ft_printf, get_next_line)                  $(O)*"
-			@$(PRINT) "*$(V)                                                       $(O)*"
-			@$(PRINT) "*********************************************************"
+			@$(PRINT) "*****************************************"
+			@$(PRINT) "*$(Y)   _     __________  _______ _______   $(O)*"
+			@$(PRINT) "*$(Y)  (_)   (_____)__  \(_______)_______)  $(O)*"
+			@$(PRINT) "*$(Y)   _       _ ____)  )_____      _      $(O)*"
+			@$(PRINT) "*$(Y)  | |     | |  __  (|  ___)    | |     $(O)*"
+			@$(PRINT) "*$(Y)  | |_____| |_|__)  ) |        | |     $(O)*"
+			@$(PRINT) "*$(Y)  |_______)___)____/|_|        |_|     $(O)*"
+			@$(PRINT) "*$(V)  Made by : jjorda                     $(O)*"
+			@$(PRINT) "*$(V)  Finished : 27/09/2024                $(O)*"
+			@$(PRINT) "*$(V)  all a.out clean bonus fclean re      $(O)*"
+			@$(PRINT) "*****************************************"
 
 $(OBJSDIR)/%.o: %.c
 				@mkdir -p $(dir $@)
@@ -98,9 +98,9 @@ $(OBJSDIR)/%.o: %.c
 
 $(APP):
 		@$(PRINT) -n "$(R)Cleaning "a.out" files ";$(WAIT0.3)
-		@$(PRINT) -n ".";$(WAIT0.3)
-		@$(PRINT) -n ".";$(WAIT0.3)
-		@$(PRINT) -n ".";$(WAIT1);$(ERASE)
+# @$(PRINT) -n ".";$(WAIT0.3)
+# @$(PRINT) -n ".";$(WAIT0.3)
+# @$(PRINT) -n ".";$(WAIT1);$(ERASE)
 		@$(FINDBYNAME) $(APP) -delete
 		@$(PRINT) "$(G)'$(APP)' files removed"
 
@@ -108,9 +108,9 @@ $(APP):
 
 clean:
 		@$(PRINT) -n "$(R)Cleaning objects files ";$(WAIT0.3)
-		@$(PRINT) -n ".";$(WAIT0.3)
-		@$(PRINT) -n ".";$(WAIT0.3)
-		@$(PRINT) -n ".";$(WAIT1);$(ERASE)
+# @$(PRINT) -n ".";$(WAIT0.3)
+# @$(PRINT) -n ".";$(WAIT0.3)
+# @$(PRINT) -n ".";$(WAIT1);$(ERASE)
 		@$(RM) -rf $(OBJSDIR)
 		@$(FINDBYNAME) '*.o' -delete
 		@$(PRINT) "$(G)object files removed"
@@ -119,9 +119,9 @@ clean:
 
 fclean:	clean 
 		@$(PRINT) -n "$(R)Cleaning library ";$(WAIT0.3)
-		@$(PRINT) -n ".";$(WAIT0.3)
-		@$(PRINT) -n ".";$(WAIT0.3)
-		@$(PRINT) -n ".";$(WAIT1);$(ERASE)
+# @$(PRINT) -n ".";$(WAIT0.3)
+# @$(PRINT) -n ".";$(WAIT0.3)
+# @$(PRINT) -n ".";$(WAIT1);$(ERASE)
 		@$(RM) -f $(NAME)
 		@$(PRINT) "$(G)Library removed"
 

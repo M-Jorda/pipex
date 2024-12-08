@@ -6,7 +6,7 @@
 /*   By: jjorda <jjorda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 10:59:27 by jjorda            #+#    #+#             */
-/*   Updated: 2024/11/24 15:09:39 by jjorda           ###   ########.fr       */
+/*   Updated: 2024/12/08 14:14:42 by jjorda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,6 @@ static inline char	*ft_getenv(char *name, t_arg *args)
 	return (NULL);
 }
 
-/* char	*ft_freecpy(char *dest, char *mall)
-{
-	int		i;
-
-	i = -1;
-	while (mall[++i])
-		dest[i] = mall[i];
-	dest[i] = '\0';
-	free(mall);
-	return (dest);
-} */
-
 /**
  * Searches for the executable path in the given paths.
  *
@@ -70,10 +58,8 @@ static inline char	*ft_loop(char **allpath, char **s_cmd, t_arg *args)
 {
 	char	*path_part;
 	char	*exec;
-	char	*temp;
 	int		i;
 
-	temp = NULL;
 	i = -1;
 	while (allpath[++i])
 	{
@@ -92,7 +78,6 @@ static inline char	*ft_loop(char **allpath, char **s_cmd, t_arg *args)
 			ft_free_tab(s_cmd);
 			return (exec);
 		}
-		// ft_ppx_err(CMD_TOO_L, ft_freecpy(temp, exec), E2BIG, args);
 		free(exec);
 	}
 	return (NULL);
@@ -140,15 +125,3 @@ char	*ft_escape(char *str)
 	ft_strcpy_esc(esc, str);
 	return (esc);
 }
-
-/* int	ft_iscmd_ok(char *cmd, t_arg *arg)
-{
-	char	*temp;
-	int		size_cmd;
-
-	temp = NULL;
-	size_cmd = ft_strlen(cmd);
-	if (size_cmd > ARG_MAX)
-		ft_ppx_err(CMD_TOO_L, ft_freecpy(temp, cmd), E2BIG, arg);
-	return (0);
-} */

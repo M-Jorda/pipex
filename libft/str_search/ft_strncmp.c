@@ -30,9 +30,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	tab_s2 = (unsigned char *) s2;
 	if (n == 0)
 		return (0);
-	while (--n
-		&& ((*tab_s1 && *tab_s2))
-		&& (*tab_s1 == *tab_s2))
+	while (--n && ((*tab_s1 && *tab_s2)) && (*tab_s1 == *tab_s2))
 	{
 		tab_s1++;
 		tab_s2++;

@@ -6,7 +6,7 @@
 /*   By: jjorda <jjorda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 20:00:33 by decortejohn       #+#    #+#             */
-/*   Updated: 2024/11/24 15:52:33 by jjorda           ###   ########.fr       */
+/*   Updated: 2024/12/08 13:30:56 by jjorda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	ft_exec(char *cmd, t_arg *args)
 	char	*path;
 	char	err_cmd[64];
 
-	s_cmd = ft_split(cmd, ' ');
+	s_cmd = ft_split_arg(cmd);
 	if (!s_cmd)
 		ft_ppx_err(ERR_MALL_M, ERR_MALL_N, ENOMEM, args);
 	path = ft_getpath(s_cmd[0], args);

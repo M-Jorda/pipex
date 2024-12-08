@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_bonus.c                                     :+:      :+:    :+:   */
+/*   ft_leak.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjorda <jjorda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 16:22:29 by jjorda            #+#    #+#             */
-/*   Updated: 2024/11/26 16:22:42 by jjorda           ###   ########.fr       */
+/*   Created: 2024/12/05 12:22:03 by jjorda            #+#    #+#             */
+/*   Updated: 2024/12/08 12:12:37 by jjorda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_BONUS_H
-# define STRUCT_BONUS_H
+#include "../libft.h"
 
-# include "pipex_bonus.h"
-
-typedef struct s_arg
+void	ft_leak(char **str, size_t i)
 {
-	char	*file1;
-	char	*cmd1;
-	char	*cmd2;
-	char	*file2;
-	char	**env;
-}	t_arg;
-
-#endif
+	if (!str)
+		return ;
+	while (i > 0)
+		free(str[--i]);
+	free(str);
+}

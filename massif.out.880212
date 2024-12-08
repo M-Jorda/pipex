@@ -1,0 +1,144 @@
+desc: (none)
+cmd: ./pipex_bns infile.txt ghvuf  wc -w hfub h outfile.txt
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=179390
+mem_heap_B=16
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=179454
+mem_heap_B=32
+mem_heap_extra_B=16
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=179553
+mem_heap_B=48
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=179659
+mem_heap_B=64
+mem_heap_extra_B=32
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=179772
+mem_heap_B=80
+mem_heap_extra_B=40
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=179884
+mem_heap_B=96
+mem_heap_extra_B=48
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=184415
+mem_heap_B=136
+mem_heap_extra_B=64
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=188289
+mem_heap_B=136
+mem_heap_extra_B=64
+mem_stacks_B=0
+heap_tree=peak
+n3: 136 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 80 0x4034A5: ft_lstnew (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 64 0x4013F1: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n0: 64 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 16 0x4013CA: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n0: 16 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n1: 40 0x4045B9: ft_strdup (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n1: 40 0x403906: ft_printerr (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+   n1: 40 0x4018FC: ft_pipein (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+    n1: 40 0x4017BA: ft_bns_pidmaker (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+     n0: 40 0x401383: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+ n1: 16 0x40140C: ft_getstruct (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+  n0: 16 0x40128C: main (in /sgoinfre/students/jjorda/students/Escuela42Malaga/pipex/pipex_bns)
+#-----------
+snapshot=9
+#-----------
+time=188289
+mem_heap_B=96
+mem_heap_extra_B=48
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=189856
+mem_heap_B=80
+mem_heap_extra_B=40
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=189897
+mem_heap_B=64
+mem_heap_extra_B=32
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=189938
+mem_heap_B=48
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=189979
+mem_heap_B=32
+mem_heap_extra_B=16
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=190020
+mem_heap_B=16
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=190061
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty

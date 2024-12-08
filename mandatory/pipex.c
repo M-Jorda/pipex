@@ -6,7 +6,7 @@
 /*   By: jjorda <jjorda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 14:09:15 by jdecorte          #+#    #+#             */
-/*   Updated: 2024/11/26 15:57:43 by jjorda           ###   ########.fr       */
+/*   Updated: 2024/12/08 13:38:24 by jjorda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static inline t_arg	*ft_getstruct(char **av, char **env)
 	arg = malloc(sizeof(t_arg));
 	if (!arg)
 		return (NULL);
-	arg->file1 = ft_escape(av[1]);
+	arg->file1 = ft_strdup(av[1]);
 	if (!arg->file1)
 	{
 		free(arg);
@@ -38,7 +38,7 @@ static inline t_arg	*ft_getstruct(char **av, char **env)
 	arg->cmd2 = ft_escape(av[3]);
 	if (!arg->cmd2)
 		return (ft_free_arg(arg));
-	arg->file2 = ft_escape(av[4]);
+	arg->file2 = ft_strdup(av[4]);
 	if (!arg->file2)
 		return (ft_free_arg(arg));
 	arg->env = env;

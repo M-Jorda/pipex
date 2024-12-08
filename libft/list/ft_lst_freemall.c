@@ -18,7 +18,7 @@ void	ft_lst_freemall(t_mall *head, void *mall)
 	t_mall	*next;
 
 	if (!head && !mall)
-		return (NULL);
+		return ;
 	while (head)
 	{
 		if (head->mall == mall)

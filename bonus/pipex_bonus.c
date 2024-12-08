@@ -6,7 +6,7 @@
 /*   By: jjorda <jjorda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 15:59:44 by jjorda            #+#    #+#             */
-/*   Updated: 2024/11/26 17:39:59 by jjorda           ###   ########.fr       */
+/*   Updated: 2024/12/08 13:21:08 by jjorda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,26 @@
  * @param cmd The command to execute.
  * @param env The environment variables.
  */
-static void	ft_exec(char *cmd, t_arg *args)
+static void	ft_exec(char *cmd, t_list *head)
 {
 	char	**s_cmd;
 	char	*path;
 	char	err_cmd[64];
 
-	s_cmd = ft_split(cmd, ' ');
+	s_cmd = ft_split_arg(cmd);
 	if (!s_cmd)
-		ft_bns_ppx_err(ERR_MALL_M, ERR_MALL_N, ENOMEM, args);
-	path = ft_bns_getpath(s_cmd[0], args);
+		ft_bns_ppx_err(ERR_MALL_M, ERR_MALL_N, ENOMEM, head);
+	path = ft_bns_getpath(s_cmd[0], head);
 	if (!path)
 	{
 		ft_bns_free_tab(s_cmd);
-		ft_bns_ppx_err(ERR_MALL_M, ERR_MALL_N, ENOMEM, args);
+		ft_bns_ppx_err(ERR_MALL_M, ERR_MALL_N, ENOMEM, head);
 	}
 	ft_strlcpy(err_cmd, s_cmd[0], 64);
-	if (execve(path, s_cmd, args->env) == -1)
+	if (execve(path, s_cmd, ft_lstlast(head)->env) == -1)
 	{
 		ft_bns_free_tab(s_cmd);
-		ft_bns_ppx_err(NOT_A_CMD, err_cmd, 127, args);
+		ft_bns_ppx_err(NOT_A_CMD, err_cmd, 127, head);
 	}
 }
 
@@ -48,7 +48,7 @@ static void	ft_exec(char *cmd, t_arg *args)
  * @param in_or_out 0 for read mode, 1 for write mode.
  * @return The file descriptor, or -1 on error.
  */
-static int	ft_open_file(char *file, int in_or_out)
+int	ft_open_file(char *file, int in_or_out)
 {
 	int	ret;
 
@@ -60,6 +60,12 @@ static int	ft_open_file(char *file, int in_or_out)
 		if (!(access(file, W_OK) == 0))
 			return (-1);
 	}
+	else if (in_or_out == 2)
+	{
+		ret = open(file, O_WRONLY | O_CREAT | O_APPEND, 0777);
+		if (!(access(file, W_OK) == 0))
+			return (-1);
+	}
 	else
 		return (-1);
 	return (ret);
@@ -68,73 +74,81 @@ static int	ft_open_file(char *file, int in_or_out)
 /**
  * Handles the child process execution.
  *
- * @param args The arguments structure.
+ * @param head The arguments structure.
  * @param p_fd The pipe file descriptors.
  */
-static inline void	ft_child(t_arg *args, int *p_fd)
+static inline void	ft_pipein(t_list *head, int i)
 {
-	int		fd;
+	pid_t	pid;
+	int		p_fd[2];
+	int		status;
 
-	fd = ft_open_file(args->file1, 0);
-	if (fd < 0)
-		ft_bns_ppx_err(NOT_A_FILE, args->file1, 1, args);
-	if (dup2(fd, STDIN_FILENO) != STDIN_FILENO)
-		ft_bns_ppx_err(BAD_FD, STD_IN, 1, args);
-	if (dup2(p_fd[1], STDOUT_FILENO) != STDOUT_FILENO)
-		ft_bns_ppx_err(BAD_FD, STD_OUT, 1, args);
-	close(p_fd[0]);
-	ft_exec(args->cmd1, args);
-	exit(0);
+	if (pipe(p_fd) == -1)
+		ft_bns_ppx_err(ERR_MALL_M, ERR_MALL_N, ENOMEM, head);
+	pid = fork();
+	if (pid == -1)
+		ft_bns_ppx_err(ERR_MALL_M, FORK_FAIL, ENOMEM, head);
+	if (pid == 0)
+	{
+		close(p_fd[0]);
+		if (dup2(p_fd[1], STDOUT_FILENO) != STDOUT_FILENO)
+			ft_bns_ppx_err(BAD_FD, STD_OUT, 1, head);
+		ft_exec(ft_nextlst(head, i)->content, head);
+		ft_lstfree(&head);
+	}
+	close(p_fd[1]);
+	if (dup2(p_fd[0], STDIN_FILENO) != STDIN_FILENO)
+		ft_bns_ppx_err(BAD_FD, STD_IN, 1, head);
+	waitpid(pid, &status, 0);
+	if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
+		ft_bns_ppx_stop(status, head);
 }
 
 /**
  * Handles the parent process execution.
  *
- * @param args The arguments structure.
+ * @param head The arguments structure.
  * @param p_fd The pipe file descriptors.
  */
-static inline void	ft_parent(t_arg *args, int *p_fd)
-{
-	int		fd;
-
-	fd = ft_open_file(args->file2, 1);
-	if (fd == -1)
-		ft_bns_ppx_err(PERMISSION, args->file2, EACCES, args);
-	if (dup2(fd, STDOUT_FILENO) != STDOUT_FILENO)
-		ft_bns_ppx_err(BAD_FD, STD_OUT, 1, args);
-	if (dup2(p_fd[0], STDIN_FILENO) != STDIN_FILENO)
-		ft_bns_ppx_err(BAD_FD, STD_IN, 1, args);
-	close(p_fd[1]);
-	ft_exec(args->cmd2, args);
-}
-
-pid_t	ft_bns_pidmaker(t_arg *args, int ac)
+static inline int	ft_pipeout(t_list *head, int fd_out)
 {
 	pid_t	pid;
-	pid_t	pid2;
 	int		status;
-	int		p_fd[2];
-	int		i;
 
-	i = -1;
-	while (++i < ac)
+	pid = fork();
+	if (pid == -1)
+		ft_bns_ppx_err(ERR_MALL_M, FORK_FAIL, ENOMEM, head);
+	if (pid == 0)
 	{
-		if (pipe(p_fd) == -1)
-			ft_bns_ppx_err(ERR_MALL_M, ERR_MALL_N, ENOMEM, args);
-		pid = fork();
-		if (pid == -1)
-			ft_bns_ppx_err(ERR_MALL_M, FORK_FAIL, ENOMEM, args);
-		if (!pid)
-			ft_child(args, p_fd);
-		pid2 = fork();
-		if (pid2 == -1)
-			ft_bns_ppx_err(ERR_MALL_M, FORK_FAIL, ENOMEM, args);
-		if (!pid2)
-			ft_parent(args, p_fd);
-		close(p_fd[0]);
-		close(p_fd[1]);
-		waitpid(pid, &status, WUNTRACED);
-		waitpid(pid2, &status, WUNTRACED);
+		if (dup2(fd_out, STDOUT_FILENO) != STDOUT_FILENO)
+			ft_bns_ppx_err(BAD_FD, STD_OUT, 1, head);
+		ft_exec(ft_lstn_3(head)->content, head);
+		ft_lstfree(&head);
+		exit(1);
 	}
+	waitpid(pid, &status, WUNTRACED);
+	return (status);
+}
+
+pid_t	ft_bns_pidmaker(t_list *head, int ac, int i)
+{
+	int		status;
+	int		fd_in;
+	int		fd_out;
+
+	if (i == 0)
+	{
+		fd_in = ft_open_file(head->content, 0);
+		if (fd_in == -1)
+			ft_bns_ppx_err(BAD_FD, "fd_in", 1, head);
+		if (dup2(fd_in, STDIN_FILENO) != STDIN_FILENO)
+			ft_bns_ppx_err(BAD_FD, STD_IN, 1, head);
+	}
+	fd_out = ft_open_file(ft_lstn_2(head)->content, 1);
+	if (fd_out == -1)
+		ft_bns_ppx_err(BAD_FD, "fd_out", 1, head);
+	while (++i < ac)
+		ft_pipein(head, i);
+	status = ft_pipeout(head, fd_out);
 	return (status);
 }
